@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    #container{
+      height: 300px;
+      width:90%;
+      display: flex;
+      background-color: grey;
+    /* border: 1px solid red; */
+      
+    }
+    
+     /* border: 1px solid black */
+    
+    #input-section{
+      flex: 1;
+      margin: 5px;
+      /* text-overflow: dropdown; */
+    }
+    #output-section{
+      flex: 1;
+      margin: 5px;
+      border: 1px solid black;
+      /* text-overflow: dropdown; */
+    }
+    #write_here{
+      width: 90%;
+      height: 270px;
+      /* text-overflow: dropdown; */
+    }
+    #translated-text{
+      text-overflow: dropdown;
+    }
+  </style>
+
+  <body>
+    <div id="container">
+     
+        <div id="input-section">
+        <!--Create button that will run translate text function, give id "translate-btn"-->
+        <button onclick="translateText()" id="translate">Translate</button>
+
+        <!--Create input that will accept text to be translated, give id "input-text"-->
+        <textarea id="write_here"></textarea>
+      </div>
+      <div id="output-section">
+        <p id="translated-text">
+          <!--Show translated text here-->
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+
+    async function translateText(){
+    
+      try{
+        var input=document.getElementById("write_here").value
+        var res=await fetch('https://libretranslate.de/translate',{
+          method:"POST",
+          body:JSON.stringify({
+            q:input,
+            source:"en",
+            target:"hi",
+            format:"text",
+
+          }),
+          headers:{
+            // accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+        let data= await res.json()
+        document.getElementById("translated-text").innerText=data.translatedText
+        console.log("data:",data)
+        }
+        catch (err){
+          console.log("err:",err)
+        }
+
+    
+    }
+</script>

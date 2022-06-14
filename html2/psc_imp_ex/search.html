@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+        }
+        #main>res{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+</body>
+</html>
+
+<script type="module">
+    import {makeAPIcall,appenddata} from "./script/main.js"
+let getback=localStorage.getItem("aise_hi")
+let res=await makeAPIcall(`https://api.unsplash.com/search/photos/?query=${getback}&client_id=8Go_T28rhUj19ajcb0J-wu4ezZMscXsNCyw-yNBk5E4`)
+console.log("res:",res)
+let parent=document.getElementById("main")
+appenddata(res.results,parent)
+
+</script>

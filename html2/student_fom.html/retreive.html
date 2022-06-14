@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+    <thead>
+        <th>
+            <td> Name |</td>
+            <td> Number |</td>
+            <td> City </td>
+        </th>
+    </thead>
+    <tbody></tbody>
+</table>
+</body>
+</html>
+<script>
+    var ret=JSON.parse(localStorage.getItem("student_form"))
+    // console.log(ret)
+     
+   
+    ret.map(function(ele){
+        var tr=document.createElement("tr");
+
+        var td1=document.createElement("td");
+        td1.textContent=ele.Name;
+
+        
+        var td2=document.createElement("td");
+        td2.textContent=ele.number;
+
+        
+        var td3=document.createElement("td");
+        td3.textContent=ele.city;
+
+        tr.append(td1,td2,td3)
+        document.querySelector("tbody").append(tr);
+
+    })
+
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 100%;
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: 500px;
+            grid-gap: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html> 
+<script>
+ var data = [
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$25.00",
+        strikedOffPrice:"$95.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    }
+];
+data.map(function(ele){
+    var x=document.createElement("div")
+
+    var imag=document.createElement("img")
+    imag.setAttribute("src",ele.imgUrl)
+
+    var head1=document.createElement("h3")
+    head1.textContent=ele.name
+
+    var head2=document.createElement("h1")
+    head2.textContent=ele.price
+
+    var p=document.createElement("p")
+    p.textContent=ele.strikedOffPrice
+
+
+x.append(imag,head1,head2,p)
+document.querySelector("#container").append(x)
+
+
+})
+</script>

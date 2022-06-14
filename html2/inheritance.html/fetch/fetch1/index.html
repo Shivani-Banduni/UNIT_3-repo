@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        /* background-color: antiquewhite; */
+        background-image:url("https://m.media-amazon.com/images/M/MV5BZDQ4MWY4MzItNTNiNi00NDM5LTkyOTEtMzRhNDgzYzA1ZmUyXkEyXkFqcGdeQWFybm8@._V1_.jpg");
+      
+    
+    }
+    button{
+        height: 20px;
+        width: 50px;
+
+    }
+    #cont{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 15px;
+        background-color: wheat;
+    }
+</style>
+<body >
+   <input type="text" id="query" placeholder="search movie"> 
+   <button onclick="getmovies()" >Go</button>
+   <div id="cont"></div>
+</body>
+</html>
+<script>
+   
+async function getmovies(){
+    
+    try{
+        let movie=document.querySelector("#query").value
+        // document.querySelector("button",go_there)
+    let url=`https://www.omdbapi.com/?apikey=95d3c3bd&s=${movie}`
+    let res=await fetch(url)
+   //getting the data by json
+ 
+    let data= await res.json()
+   
+   
+    //appending data just after getting data
+    append_data(data.Search)
+    alert("Got Movies")
+//   document.querySelector("cont").textContent=null
+    // console.log("data:",data)
+}
+catch (err){
+alert("No movie found")
+}
+}
+function append_data(data){
+    cont.innerHTML=null
+// console.log("data:",data)
+data.forEach(function(ele){
+    // console.log("ele:",ele)
+    console.log(ele)
+    var main=document.createElement("div")
+
+
+    var po=document.createElement("img")
+    po.src=ele.Poster
+
+    var tit=document.createElement("h1")
+    tit.textContent=ele.Title
+
+    var ye=document.createElement("p")
+    ye.textContent=ele.Year
+
+    var ty=document.createElement("p")
+    ty.textContent=ele.Type
+
+
+
+  var imdb=(Math.random()*(9.5-4.5+1)+4.5).toFixed(1)
+
+  
+  var imd=document.createElement("h3")
+    imd.innerHTML=`${imdb}`
+  if(imdb>8.5){
+      imd.innerHTML="Recommended"
+  }
+  
+
+    main.append(po,tit,ye,ty,imd)
+document.querySelector("#cont").append(main)
+
+// if(data.Search==ele.data){
+//     alert("https://cdn.dribbble.com/users/251873/screenshots/9289747/13540-sign-for-success-alert.gif")
+    
+// }else{
+//     alert("bad")
+// }
+})
+    
+}
+</script>

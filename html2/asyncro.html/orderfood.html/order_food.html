@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 100%;
+            height: 200px;
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCKdfjpl-cTaecdG5SLkwkLrDrFi3ARzDm-Q&usqp=CAU");
+
+        }
+    </style>
+</head>
+<body>
+<div class="main"></div>
+
+    <label for="food"><h1>Choose a food:</label>
+
+
+<select id="food">
+  <option value="pizza">pizza</option>
+  <option value="burger">burger</option>
+  <option value="dosa">dosa</option>
+  <option value="pasta">Pasta</option>
+</select>
+    <input type="button" onclick="Order()" value="Order food">
+
+    <div id="slide">
+        <img src="" id="pics" alt="">
+    </div>
+</body>
+</html>
+<script>
+ function Order(){
+    
+        let food_available="open";
+        let order=document.getElementById("food").value;
+        let food_promise=new Promise(function(resolve,reject){
+             setTimeout(function (){
+                 if(food_available="open"){
+                 resolve("your order is ready")}
+                
+                 else {
+                     reject("Not Available")
+                 }
+
+            },3000)
+        });
+        Promise.then(function (res){
+            console.log("res:",res)
+        });
+       
+
+    
+var pictures = [
+    {
+        image: "data:image/jpeg;base64,/9j//jpiAtSQXD6GfzqvY/+JLqx9w0lsfiX31ewgA+9PZKUhaUvVFFCAublFFFSGSS//9k="
+    }]
+    
+var i=0;
+setInterval(function(){
+    if(i==pictures.length){
+        i=0
+    }
+    var pics=document.querySelector("#pics");
+    pics.src=pictures[i].image
+})
+    
+}
+    
+
+</script>

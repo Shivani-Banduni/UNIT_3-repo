@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let amar={
+        city:"Goa",
+        skill:"singer",
+        calling(){
+            console.log(`Amar having ${this.skill} skill`)
+        }
+        }
+    let akbar={
+        city:"Mumbai",
+        skill:"Chef",
+        calling(){
+            console.log(`Akbar having ${this.skill} skill`)
+        }
+    }
+    let anthony={
+        city:"Kashmir",
+        skill:"Magician",
+        calling(){
+            console.log(`Anthony having ${this.skill} skill`)
+        }
+        }
+        akbar.calling.call(amar)
+        amar.calling.call(anthony)
+        anthony.calling.call(akbar)
+</script>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            background-color:maroon;
+            color: white;
+            height: 40px;
+            width: 90px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- //creating buttons  -->
+    <button onclick="one()" type="button" id="main">Objects</button>
+    <button onclick="two()" type="button" id="main">Arrays</button>
+    <button onclick="third()" type="button" id="main">Function</button>
+    <button onclick="fourth()" type="button" id="main">Strings</button>
+    <button onclick="fifth()" type="button" id="main">Numbers</button>
+    <button onclick="sixth()" type="button" id="main">Null</button>
+    <button onclick="seventh()" type="button" id="main">Undefined</button>
+    <ul>
+       
+    </ul>
+</body>
+</html>
+<script>
+    function one(){
+        //creating a list
+        var p1=document.createElement("li")
+        p1.textContent="Object consists key value pair"
+        var p2=document.createElement("li")
+        p2.textContent="With javascript, you can create your own object"
+        var p3=document.createElement("li")
+        p3.textContent="Javascript objects ara mutable"
+        var p4=document.createElement("li")
+        p4.textContent="Objects are non primitie datatype"
+        document.querySelector("ul").append(p1,p2,p3,p4)
+        //appending p1,p2,p3,p4 to ul
+    }
+
+        function two(){
+        var t1=document.createElement("li")
+        t1.textContent="Array is a collection of items"
+        var t2=document.createElement("li")
+        t2.textContent="array allows to store multiple items of same type"
+        var t3=document.createElement("li")
+        t3.textContent="Indexing of array starts from 0"
+        var t4=document.createElement("li")
+        t4.textContent="Array allows random access to elelments"
+        document.querySelector("ul").append(t1,t2,t3,t4)
+    }
+
+
+    
+    function third(){
+        var t1=document.createElement("li")
+        t1.textContent="Function is a block of code designed to perform a particular task"
+        var t2=document.createElement("li")
+        t2.textContent="A javascript function execuates when it is invoked"
+        var t3=document.createElement("li")
+        t3.textContent="A javascript function is defined by keyword function"
+        var t4=document.createElement("li")
+        t4.textContent="Function arguements are the values received by function when it is invoked"
+        document.querySelector("ul").append(t1,t2,t3,t4)
+    }
+
+
+    function fourth(){
+        var t1=document.createElement("li")
+        t1.textContent="string is a group of characters"
+        var t2=document.createElement("li")
+        t2.textContent="String always comes under double quotes"
+        var t3=document.createElement("li")
+        t3.textContent="String indexes starts from 0"
+        var t4=document.createElement("li")
+        t4.textContent="A string is a sequence of one or more than letters,characters,symbols"
+        document.querySelector("ul").append(t1,t2,t3,t4)
+    }
+
+
+    
+    function fifth(){
+        var t1=document.createElement("li")
+        t1.textContent="Number is a primitive object used to represent and manipulate numbers like 35,9.56"
+        var t2=document.createElement("li")
+        t2.textContent="There are many types of numbers in programming languages"
+        var t3=document.createElement("li")
+        t3.textContent="When Number is used as a function it converts into a number type"
+        var t4=document.createElement("li")
+        t4.textContent="Using the Number object to assign value to numeric variables"
+        document.querySelector("ul").append(t1,t2,t3,t4)
+    }
+
+
+    
+    
+    function sixth(){
+        var t1=document.createElement("li")
+        t1.textContent="Null means absence of value"
+        var t2=document.createElement("li")
+        t2.textContent="Null is a assigned value ,it means nothing"
+        var t3=document.createElement("li")
+        t3.textContent="Null is primitive value"
+        var t4=document.createElement("li")
+        t4.textContent="Null is like zero"
+        document.querySelector("ul").append(t1,t2,t3,t4)
+    }
+
+    
+    
+    function seventh(){
+        var t1=document.createElement("li")
+        t1.textContent="Undefined is a primitive value in javascript"
+        var t2=document.createElement("li")
+        t2.textContent="An undefined value when no value is assigned before using it"
+        var t3=document.createElement("li")
+        t3.textContent="An undefined evaluates to false when used in conditional expression"
+        var t4=document.createElement("li")
+        t4.textContent="An undefined value means lack of value"
+        document.querySelector("ul").append(t1,t2,t3,t4)
+        //appending t1.t2,t3,t4 to ul
+    }
+
+
+
+
+
+
+    
+</script>

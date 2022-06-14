@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <style>
+    #jaruri{
+      background-image: url("https://m.media-amazon.com/images/M/MV5BZDQ4MWY4MzItNTNiNi00NDM5LTkyOTEtMzRhNDgzYzA1ZmUyXkEyXkFqcGdeQWFybm8@._V1_.jpg");
+    background-color:burlywood;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+
+    }
+    input {
+
+      width: 200px;
+      margin: auto;
+    }
+    #query{
+      margin: auto;
+    }
+
+    #movies {
+color: white;
+      height: 200px;
+      width: 206px;
+      /* border: solid 1px black; */
+      overflow: scroll;
+      font-size: 200;
+      /* margin: auto; */
+    
+
+    }
+   
+    #container{
+      /* border: 1px solid black; */
+      color:red;
+      font-size: larger;
+      font-weight: 500;
+      
+      /* margin: auto; */
+    }
+    img{
+      height: 300px;
+      width: 300px;
+    }
+  </style>
+
+  <body id="jaruri">
+<div id="yai">
+    <input oninput="debounce(main,1000)" type="text" id="query">
+
+    <div  id="movies"></div>
+</div>
+    <div id="container"></div>
+
+
+
+  </body>
+
+</html>
+<script>
+async function searchMovies(){
+    try{
+        let movie = document.getElementById("query").value   
+      let res=await  fetch(`https://www.omdbapi.com/?apikey=95d3c3bd&s=${movie}`);
+      let data=await res.json()
+      return data.Search
+
+    }
+    catch(err){
+console.log("err:",err)
+    }
+    }
+async function main(){
+    let data= await searchMovies();
+
+    if(data==undefined){
+        return
+    }
+    //console.log("data:",data)
+    appendData(data)
+}
+let movies_div=document.getElementById("movies")
+function appendData(movies){
+    console.log(movies)
+    movies_div.innerHTML=null
+    movies.forEach(function(ele){
+        let p=document.createElement('p')
+        p.innerText=ele.Title
+       
+        p.onclick=function(){
+          moviesitem(ele)
+        }
+        movies_div.append(p)
+
+    })
+   // document.querySelector("container").innerHTML=null
+   let movie_div=document.getElementById("container")
+      function moviesitem(ele){
+document.getElementById(container).innerHTML=null
+
+
+        let big_div=document.createElement("div") 
+
+let pos=document.createElement("img")
+pos.src=ele.Poster
+
+let ti=document.createElement("p")
+ti.innerText=ele.Title
+
+let ye=document.createElement("p")
+ye.innerText=ele.Year
+
+big_div.append(pos,ti,ye)
+document.querySelector("#container").append(big_div)
+ //
+console.log("container:",container)
+      }
+
+
+
+
+    }
+   
+
+  async function moviesitem(){
+   try{
+let movie1=document.querySelector("container")
+let res=await fetch(`https://www.omdbapi.com/?apikey=95d3c3bd&s=${movie1}`)
+let data1=await res.json()
+appendData(data1)
+   }
+   catch(err){
+     console.log("err:",err)
+   }
+
+}
+let mov=document.querySelector("container")
+function appendData(container){
+ // console.log(container)
+ //innerHTML=null
+ let pic=document.createElement("div")
+  container.forEach(function(elem){
+
+    let pos=document.createElement("img")
+pos.src=elem.Poster
+
+let ti=document.createElement("p")
+ti.innerText=elem.Title
+ti.style.color="red"
+ti.style.fontSize="large"
+
+let ye=document.createElement("p")
+ye.innerText=elem.Year
+ye.style.color="red"
+ye.style.fontSize="large"
+
+pic.append(pos,ti,ye)
+document.querySelector("#jaruri").append(pic)
+ //
+
+  })
+}
+
+// }
+
+let time_id
+
+//oninput-main()-debounce-'a'-settimeout
+//oninput-main()-debounce-"av"-settime0ut
+//oninput-main()-debounce-"ave"-settimeout
+function debounce(func,delay){
+  if(time_id){
+      clearTimeout(time_id)
+  }
+ time_id=   setTimeout(function(){
+        func()
+    },delay)
+  }
+
+
+
+    
+ 
+
+
+
+</script>
